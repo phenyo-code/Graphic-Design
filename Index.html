@@ -8,14 +8,25 @@
 </head>
 <body>
   <header class="header">
-    <h1>Graphic Designer</h1>
-    <p>Hey, I'm Phenyo Koikoi, and I've been a creative graphic designer for over 7 years, designing visually compelling graphics.</p>
 
+    <div id="container">
+        <span id="text1"></span>
+        <span id="text2"></span>
+    </div>
+    
+    <svg id="filters">
+        <defs>
+            <filter id="threshold">
+                <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0
+                      0 1 0 0 0
+                      0 0 1 0 0
+                      0 0 0 " />
+            </filter>
+        </defs>
+    </svg>
 
-
-
-
-    <a href="https://phenyokoikoi.vercel.app/" class="portfolio-link" target="_blank">CLICK HERE TO VISIT MY OTHER PORTFOLIO [ UI/UX DESIGN ]</a>
+    <!-- <h1>Graphic Designer</h1> -->
+   <p>Hey, I'm Phenyo Koikoi, and I've been a creative graphic designer for over 7 years, designing visually compelling graphics.</p> 
   </header>
 
 
@@ -43,8 +54,8 @@
           <div class="image-grid">
             <img src="FlareLogo.jpeg" alt="Project Graphic 1">
             <img src="Flare1.png" alt="Project Graphic 2">
-            <img src="Flare2.png" alt="Project Graphic 3">
-            <img src="Flare3.png" alt="Project Graphic 4">
+            <img src="Flare4.jpeg" alt="Project Graphic 3">
+            <img src="FlareF.jpeg" alt="Project Graphic 4">
           </div>
         </div>
   
@@ -52,7 +63,7 @@
         <div class="work-card">
           <h3>Finora</h3>
           <div class="image-grid">
-            <img src="FinoraLogo.jpeg" alt="Another Graphic 1">
+            <img src="finora123.jpeg" alt="Another Graphic 1">
             <img src="Finora1.png" alt="Another Graphic 2">
             <img src="Finora2.png" alt="Another Graphic 1">
           </div>
@@ -70,23 +81,14 @@
 
           <!-- Third Work Card -->
         <div class="work-card">
-            <h3>Logos</h3>
+            <h3>Other Projects</h3>
             <div class="image-grid">
-              <img src="another1.jpg" alt="Another Graphic 1">
-              <img src="another2.jpg" alt="Another Graphic 2">
-              <img src="another1.jpg" alt="Another Graphic 1">
-              <img src="another2.jpg" alt="Another Graphic 2">
-              <img src="another1.jpg" alt="Another Graphic 1">
-              <img src="another2.jpg" alt="Another Graphic 2">
-              <img src="another1.jpg" alt="Another Graphic 1">
-              <img src="another2.jpg" alt="Another Graphic 2">
-            </div>
-          </div>
-
-          <!-- Third Work Card -->
-        <div class="work-card">
-            <h3>ANOTHER PROJECT</h3>
-            <div class="image-grid">
+              <img src="Untitled.jpeg" alt="Another Graphic 1">
+              <img src="Moir.jpeg" alt="Another Graphic 2">
+              <img src="Boca.jpeg" alt="Another Graphic 1">
+              <img src="ccsolutions.jpeg" alt="Another Graphic 2">
+              <img src="Rectangle (16).png" alt="Another Graphic 1">
+              <img src="Rectangle (17).png" alt="Another Graphic 2">
               <img src="another1.jpg" alt="Another Graphic 1">
               <img src="another2.jpg" alt="Another Graphic 2">
             </div>
@@ -97,8 +99,112 @@
   </main>
 
   <footer>
+    <a href="https://phenyokoikoi.vercel.app/" class="portfolio-link" target="_blank">CLICK HERE TO VISIT MY OTHER PORTFOLIO [ UI/UX DESIGN ]</a>
+    
     <p>&copy; 2024 Phenyo Koikoi</p>
   </footer>
+  <script>
+const elts = {
+    text1: document.getElementById("text1")
+};
+
+const texts = [
+    "Graphic Designer",
+    "Creative Designer",
+    "Visual Designer",
+    "Digital Designer",
+    "Brand Designer",
+    "Illustrator",
+];
+
+const morphTime = 2;  // Time it takes to morph between words (2 seconds)
+const cooldownTime = 0.5;  // Time between morphs (0.5 seconds)
+
+let textIndex = 0;  // Start from the first word
+let time = new Date();
+let morph = 0;
+let cooldown = cooldownTime;
+
+elts.text1.textContent = texts[textIndex]; // Set the initial text (first word)
+
+function doMorph() {
+    morph -= cooldown;
+    cooldown = 0;
+
+    let fraction = morph / morphTime;
+
+    if (fraction > 1) {
+        fraction = 1;
+    }
+
+    setMorph(fraction);
+}
+
+function setMorph(fraction) {
+    // Apply blur and opacity effects based on the morph progress
+    elts.text1.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
+    elts.text1.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
+
+    // Once the morphing is complete (fraction === 1), update to the next word
+    if (fraction === 1) {
+        // Skip the first word only on the first cycle
+        if (textIndex === 0) {
+            textIndex = 1;  // Skip the first word at the beginning
+        } else {
+            // Increment textIndex to move to the next word
+            textIndex++;
+
+            // If we reach the end of the array, reset to the first word
+            if (textIndex >= texts.length) {
+                textIndex = 0; 
+            }
+        }
+
+        // Update the text content with the next word
+        elts.text1.textContent = texts[textIndex];
+
+        // Reset the morph for the next word
+        morph = 0;
+    }
+}
+
+function doCooldown() {
+    morph = 0;
+    elts.text1.style.filter = "";
+    elts.text1.style.opacity = "100%";
+}
+
+function animate() {
+    requestAnimationFrame(animate);
+
+    let newTime = new Date();
+    let dt = (newTime - time) / 2000;  // Use 2000ms for each transition (2 seconds)
+    time = newTime;
+
+    cooldown -= dt;
+
+    if (cooldown <= 0) {
+        // Start morphing if it's not already in progress
+        if (morph < morphTime) {
+            morph += dt;
+            if (morph > morphTime) morph = morphTime;
+        } else {
+            morph = 0;  // Reset morph time after each cycle
+            cooldown = cooldownTime;  // Reset cooldown after each cycle
+        }
+        doMorph();
+    } else {
+        doCooldown();
+    }
+}
+
+// Start the animation loop after a small delay to ensure the first word is shown
+setTimeout(() => {
+    elts.text1.style.opacity = "1"; // Show the first word after a slight delay
+    animate(); // Start the animation
+}, 100); // Delay to let the first word transition smoothly
+
+  </script>
 </body>
 </html>
 
