@@ -1,0 +1,201 @@
+/* General Styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap'); 
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  color: #ffffff;
+  background: linear-gradient(135deg, #121212, #1e1e1e);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  position: relative;
+  overflow: auto;
+  padding: 0 20px;
+  min-height: 100vh;
+}
+
+/* Animated Gradient Background */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Wire Mesh Static Background */
+body::before {
+  content: "";
+  position: fixed; /* Fix the mesh in place */
+  top: 0;
+  left: 0;
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  background: repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.15) 0px, rgba(255, 255, 255, 0.15) 1px, transparent 1px, transparent 10px);
+  z-index: -2; /* Place behind all other content */
+  pointer-events: none; /* Make it unclickable */
+  opacity: 0.1; /* Light opacity for subtle effect */
+  animation: none; /* No animation, keep it static */
+}
+
+/* Header Styles */
+.header {
+  text-align: center;
+  padding: 40px 20px;
+  margin: 40px auto;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  max-width: calc(100% - 70px);
+  width: 900px;
+  animation: fadeIn 1.5s ease;
+  z-index: 1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header h1 {
+  font-size: 6rem;
+  margin-bottom: 15px;
+}
+
+.header p {
+  font-size: 1.2rem;
+  margin-bottom: 150px;
+}
+
+.header h1 {
+  font-family: 'Inter', sans-serif;
+  font-size: 7vw; /* Make it responsive by using viewport width */
+  font-weight: 800;
+  margin: 20px 0;
+}
+
+.header .portfolio-link {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  color: #ffffff;
+  background-color: #444444;
+  border: 1px solid #ffffff;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.header .portfolio-link:hover {
+  background-color: #ffffff;
+  color: #444444;
+}
+
+/* Work Section */
+.work-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.work-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Work Container */
+.work-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+
+/* Work Card */
+.work-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  border-radius: 12px;
+  padding: 20px;
+  width: 800px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  transition: transform 0.3s ease;
+  animation: slideUp 1.5s ease;
+}
+
+.work-card:hover {
+  transform: translateY(-5px);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.work-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+/* Image Grid */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  justify-content: center;
+}
+
+.image-grid img {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.image-grid img:hover {
+  transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  margin-top: 30px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+  .work-card {
+    width: 100%;
+  }
+
+  .image-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
