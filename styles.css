@@ -320,6 +320,11 @@ footer {
   width: 100%;
 }
 
+.copy {
+margin-bottom: 3rem;
+margin-top: 1rem;
+}
+
 /* Media Queries for Mobile */
 @media (max-width: 768px) {
   .work-card {
