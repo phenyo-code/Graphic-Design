@@ -15,10 +15,15 @@ body {
   background-size: 400% 400%;
   animation: gradientAnimation 15s ease infinite;
   position: relative;
-  overflow: auto;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
   padding: 0 20px;
   min-height: 100vh;
 }
+
+body {
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
 
 /* Animated Gradient Background */
 @keyframes gradientAnimation {
@@ -59,6 +64,25 @@ body::before {
   margin-bottom: 5rem;
 }
 
+.header {
+  padding: 1rem; /* Reduce padding for mobile */
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 1.5rem; /* Adjust padding for better mobile spacing */
+  }
+  .header-buttons {
+    flex-direction: column; /* Stack the buttons vertically on mobile */
+    gap: 1rem;
+  }
+  .portfolio-link {
+    font-size: 1.2rem; /* Reduce button size on mobile */
+    padding: 8px 16px;
+  }
+}
+
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -71,8 +95,18 @@ body::before {
 }
 
 .header h1 {
-  font-size: 6rem;
-  margin-bottom: 15px;
+  font-size: 7vw;
+  font-weight: 800;
+  margin: 20px 0;
+}
+
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 10vw; /* Slightly larger font size for mobile */
+  }
+  .header p {
+    font-size: 4vw; /* Adjust the paragraph font size for smaller screens */
+  }
 }
 
 .header p {
@@ -285,13 +319,19 @@ a {
   margin-bottom: 15px;
 }
 
-/* Image Grid */
 .image-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   justify-content: center;
 }
+
+@media (max-width: 768px) {
+  .image-grid {
+    grid-template-columns: 1fr; /* Stack images vertically on mobile */
+  }
+}
+
 
 .image-grid img {
   width: 100%;
@@ -307,7 +347,6 @@ a {
   transform: scale(1.1);
 }
 
-/* Footer */
 footer {
   text-align: center;
   padding: 10px;
@@ -318,6 +357,7 @@ footer {
   font-size: 0.9rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   width: 100%;
+  color: #fff;  /* Ensure footer text is white */
 }
 
 .copy {
