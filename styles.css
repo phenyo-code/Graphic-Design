@@ -48,14 +48,15 @@ body::before {
   padding: 40px 20px;
   margin: 40px auto;
   background: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
   backdrop-filter: blur(10px);
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); */
   max-width: calc(100% - 70px);
   width: 900px;
   animation: fadeIn 1.5s ease;
   z-index: 1;
-  margin-bottom: 30px;
+  margin-bottom: 5rem;
 }
 
 @keyframes fadeIn {
@@ -75,9 +76,10 @@ body::before {
 }
 
 .header p {
-  font-size: 1.2rem;
   margin-top: 100px;
   margin-bottom: 1px;
+  font-size: 2vw; /* Make it responsive by using viewport width */
+  font-weight: 500;
 }
 
 .header h1 {
@@ -86,6 +88,127 @@ body::before {
   font-weight: 800;
   margin: 20px 0;
 }
+
+.header {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: white;
+}
+
+/* Container for the buttons */
+.header-buttons {
+  display: flex;
+  justify-content: center; /* Aligns buttons horizontally */
+  align-items: center; /* Aligns buttons vertically */
+  gap: 20px; /* Adds spacing between buttons */
+  margin-top: 20px; /* Optional: Adjust spacing from other elements */
+}
+
+/* Primary Button */
+.btn-primary {
+  background-color: rgb(173, 113, 0);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #ff8c00; /* Darker orange on hover */
+}
+
+/* Secondary Button */
+.btn-secondary {
+  background-color: transparent;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: 2px solid white;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-secondary:hover {
+  border-color: orange;
+  color: orange;
+}
+
+/* Scroll Down Arrow */
+.scroll-down-indicator {
+  position: fixed; /* Fixed position ensures it stays in place */
+  bottom: 20px; /* Distance from the bottom of the viewport */
+  left: 50%; /* Center it horizontally */
+  transform: translateX(-50%); /* Fine-tune centering */
+  font-size: 24px; /* Size of the arrow */
+  color: white; /* White color for visibility */
+  background-color: rgba(26, 26, 26, 0.5); /* Slight dark background */
+  border: 2px solid white; /* White border around the circle */
+  border-radius: 50%; /* Makes the border circular */
+  padding: 10px; /* Add padding to make the circle larger */
+  animation: bounce 2s infinite; /* Bounce effect */
+  cursor: pointer; /* Indicate that it's clickable */
+  z-index: 1000; /* Makes sure it's above the header */
+  transition: opacity 0.3s ease; /* Smooth transition for hiding the arrow */
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Make the arrow smaller on mobile */
+@media (max-width: 768px) {
+  .scroll-down-indicator {
+    font-size: 18px; /* Adjust size for smaller screens */
+    padding: 8px; /* Adjust padding for smaller screens */
+  }
+}
+
+
+
+.stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.stat-item {
+  text-align: center;
+  color: #fff;
+  background: #1a1a1a;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.stat-item h3 {
+  font-size: 2rem;
+  color: orange;
+  margin-bottom: 0.5rem; /* Reduced gap between the metric and text */
+}
+
+.stat-item p {
+  font-size: 1rem;
+  color: #ddd;
+  margin-top: 0; /* Ensure no extra space at the top */
+}
+
+
 
 .portfolio-link {
   display: inline-block;
@@ -208,17 +331,25 @@ footer {
   }
 }
 
+@media (max-width: 768px) {
+  .stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+
 
 #container {
     margin: 0;
     filter: url(#threshold) blur(0.6px);
+    margin-top: 1rem;
 }
 
 #text1,
 #text2 {
   font-family: 'Inter', sans-serif;
-  font-size: 7vw; /* Make it responsive by using viewport width */
+  font-size: 5vw; /* Make it responsive by using viewport width */
   font-weight: 700;
   margin: 20px 0;
-  margin-bottom: 100px;
 }

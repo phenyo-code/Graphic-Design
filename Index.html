@@ -7,8 +7,15 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="header">
+  <div class="scroll-down-indicator">
+    <span>&#x2193;</span> <!-- Unicode for a downward arrow -->
+  </div>
 
+  <header class="header">
+    <p>Hey, I'm Phenyo Koikoi.</p> 
+    <div class="scroll-down-indicator">
+      <span>&#x2193;</span> <!-- Unicode for a downward arrow -->
+    </div>
     <div id="container">
         <span id="text1"></span>
         <span id="text2"></span>
@@ -24,9 +31,29 @@
             </filter>
         </defs>
     </svg>
+  
 
-    <!-- <h1>Graphic Designer</h1> -->
-   <p>Hey, I'm Phenyo Koikoi, and I've been a creative graphic designer for over 7 years, designing visually compelling graphics.</p> 
+    <div class="header-buttons">
+      <a href="mailto:phenyikoikoi3@gmail.com" class="btn-primary">Contact Me</a>
+      <a href="Phenyo Koikoi Resume.pdf" class="btn-secondary" download>Download CV</a>
+    </div>
+    
+    
+    <!-- Added Counter Section -->
+    <div class="stats">
+      <div class="stat-item">
+        <h3>3 Year+</h3>
+        <p>Experiences</p>
+      </div>
+      <div class="stat-item">
+        <h3>55+</h3>
+        <p>Projects</p>
+      </div>
+      <div class="stat-item">
+        <h3>35+</h3>
+        <p>Happy Clients</p>
+      </div>
+    </div>
   </header>
 
 
@@ -123,6 +150,7 @@ const elts = {
 
 const texts = [
     "Graphic Designer",
+    "Motion Designer",
     "Creative Designer",
     "Visual Designer",
     "Digital Designer",
@@ -216,6 +244,29 @@ setTimeout(() => {
     elts.text1.style.opacity = "1"; // Show the first word after a slight delay
     animate(); // Start the animation
 }, 100); // Delay to let the first word transition smoothly
+
+document.querySelector('.scroll-down-indicator').addEventListener('click', () => {
+    window.scrollBy({
+      top: window.innerHeight, // Scroll by the viewport height
+      behavior: 'smooth' // Smooth scroll
+    });
+  });
+
+
+// Select the arrow element
+const arrow = document.querySelector('.scroll-down-indicator');
+
+// Add event listener for scroll
+window.addEventListener('scroll', () => {
+  // Fade out the arrow when the user scrolls
+  arrow.style.opacity = 0;
+});
+
+// Add event listener for click
+arrow.addEventListener('click', () => {
+  // Fade out the arrow when clicked
+  arrow.style.opacity = 0;
+});
 
   </script>
 </body>
