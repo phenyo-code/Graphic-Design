@@ -20,6 +20,14 @@ body {
   min-height: 100vh;
 }
 
+/* Override for smaller screens */
+@media screen and (max-width: 768px) {
+  body {
+    background-color: #000; /* Ensures black background on mobile */
+  }
+}
+
+
 body {
   overflow-x: hidden; /* Prevent horizontal scrolling */
 }
