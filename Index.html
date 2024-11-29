@@ -44,7 +44,7 @@
     <div class="stats">
       <div class="stat-item">
         <h3>3 Year+</h3>
-        <p>Experiences</p>
+        <p>Experience</p>
       </div>
       <div class="stat-item">
         <h3>55+</h3>
@@ -70,7 +70,8 @@
           <div class="image-grid">
             <img src="SoroLogo.jpeg" alt="Alchemy Graphic 1">
             <img src="Soro2 (2).png" alt="Alchemy Graphic 2">
-            <img src="Soro1.jpeg" alt="Alchemy Graphic 3">
+            <img src="Sorobrochuree.png" alt="Alchemy Graphic 3">
+            <a href="Soro.html" target="_blank"><img src="seemore.jpeg" alt="Alchemy Graphic 3"></a>
           </div>
         </div>
   
@@ -82,20 +83,45 @@
             <img src="alchemy1.jpeg" alt="Alchemy Graphic 1">
             <img src="alchemy3.png" alt="Alchemy Graphic 2">
             <img src="alchemy2.png" alt="Alchemy Graphic 3">
+            <a href="alchemy.html" target="_blank"><img src="seemore.jpeg" alt="Alchemy Graphic 3"></a>
           </div>
         </div>
-        
-        <!-- Second Work Card -->
+
+        <!-- First Work Card -->
         <div class="work-card">
-          <h3>FLARE</h3>
+          <h3>Terserk</h3>
           <div class="image-grid">
-            <img src="FlareLogo.jpeg" alt="Project Graphic 1">
-            <img src="Flare1.png" alt="Project Graphic 2">
-            <img src="Flare4.jpeg" alt="Project Graphic 3">
-            <img src="FlareF.jpeg" alt="Project Graphic 4">
+            <video controls loop autoplay muted><source src="Terserkvideo.mp4" type="video/mp4">Spmething 
+              went wrong trying to play the video</video>
+            <img src="Terserk1.png" alt="Alchemy Graphic 3">
+            <img src="Terserk4.png" alt="Alchemy Graphic 3">
+            <a href="Terserk.html" target="_blank"><img src="seemore.jpeg" alt="Alchemy Graphic 3"></a>
           </div>
         </div>
+      
+
+        <h2>Other Work</h2>
   
+        <!-- Third Work Card -->
+        <div class="work-card">
+          <h3>Wincra</h3>
+          <div class="image-grid">
+            <img src="wincralogo.JPG" alt="Another Graphic 1">
+            <img src="wincraboards.JPEG" alt="Another Graphic 2">
+            <video controls loop autoplay muted><source src="WincraVideoo.mp4" type="video/mp4">Spmething 
+            went wrong trying to play the video</video>
+            <img src="Wincraboard.JPEG" alt="Another Graphic 1">
+          </div>
+        </div>
+           <!-- Second Work Card -->
+           <div class="work-card">
+            <h3>FLARE</h3>
+            <div class="image-grid">
+              <img src="FlareLogo.jpeg" alt="Project Graphic 1">
+              <img src="Flare1.png" alt="Project Graphic 2">
+              <img src="FlareF.jpeg" alt="Project Graphic 4">
+            </div>
+          </div>
         <!-- Third Work Card -->
         <div class="work-card">
           <h3>Finora</h3>
@@ -103,9 +129,7 @@
             <img src="finora123.jpeg" alt="Another Graphic 1">
             <img src="Finora1.png" alt="Another Graphic 2">
             <img src="Finora2.png" alt="Another Graphic 1">
-          </div>
-        </div>
-        
+          </div>        </div>
         <!-- Add more work cards as needed -->
          <!-- Third Work Card -->
         <div class="work-card">
@@ -115,7 +139,6 @@
               <img src="DesignCraft.png" alt="Another Graphic 2">
             </div>
           </div>
-
           <!-- Third Work Card -->
         <div class="work-card">
             <h3>Other Projects</h3>
@@ -123,15 +146,13 @@
               <img src="Untitled.jpeg" alt="Another Graphic 1">
               <img src="9A7.jpeg" alt="Another Graphic 1">
               <img src="Internet.png" alt="Another Graphic 2">
+              <img src="xcode.JPEG" alt="Another Graphic 1">
+              <img src="getruda.JPEG" alt="Another Graphic 2">
               <img src="massi.jpeg" alt="Another Graphic 1">
               <img src="Moir.jpeg" alt="Another Graphic 2">
-              <img src="Boca.jpeg" alt="Another Graphic 1">
-              <img src="ccsolutions.jpeg" alt="Another Graphic 2">
               <img src="Rectangle (16).png" alt="Another Graphic 1">
               <img src="Rectangle (17).png" alt="Another Graphic 2">
               <img src="Paradise.jpeg" alt="Another Graphic 2">
-              <img src="Treep.jpeg" alt="Another Graphic 1">
-              <img src="mesh.jpeg" alt="Another Graphic 2">
             </div>
           </div>
         
@@ -141,7 +162,7 @@
 
   <footer>
     <a href="https://phenyokoikoi.vercel.app/" class="portfolio-link" target="_blank">CLICK HERE TO VISIT MY OTHER PORTFOLIO [ UI/UX DESIGN ]</a>
-    
+    <p class="copy">Copy Right</p>
     <p class="copy">&copy; 2024 Phenyo Koikoi</p>
     <p>Built this site by myself. <a href="https://github.com/phenyo-code/Graphic-Design.git"  target="_blank"  class="Clone" 
       >Clone it</a></p>
@@ -154,14 +175,13 @@ const elts = {
 const texts = [
     "Graphic Designer",
     "Motion Designer",
+    "Product Designer",
     "Creative Designer",
-    "Visual Designer",
     "Digital Designer",
-    "Brand Designer",
     "Illustrator",
 ];
 
-const morphTime = 2;  // Time it takes to morph between words (2 seconds)
+const morphTime = 1.5;  // Time it takes to morph between words (2 seconds)
 const cooldownTime = 0.5;  // Time between morphs (0.5 seconds)
 
 let textIndex = 0;  // Start from the first word
@@ -186,8 +206,8 @@ function doMorph() {
 
 function setMorph(fraction) {
     // Apply blur and opacity effects based on the morph progress
-    elts.text1.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
-    elts.text1.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
+    elts.text1.style.filter = `blur(${Math.min(8 / fraction - 7, 100)}px)`;
+    elts.text1.style.opacity = `${Math.pow(fraction, 0.5) * 100}%`;
 
     // Once the morphing is complete (fraction === 1), update to the next word
     if (fraction === 1) {
